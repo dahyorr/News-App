@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+                <div class="header">
+                <div class="title">
+                    <h1>{{ title }}</h1>
+                    {% if search %}
+                        <a class="remove" href="/"><i class="fas fa-times-circle"></i></a>
+                    {% endif %}
+                </div>
+
+                <div class="left">
+                    <form>
+                        <label for="searchbar"></label><input type="text" name="search" id="searchbar" placeholder="Search">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="filters">
+                        <div class="tag " id="story" onclick="update_query_parameters('filter', 'story')">Stories</div>
+                        <div class="tag " id="job" onclick="update_query_parameters('filter', 'job')">Jobs</div>
+                        <div class="remove " id="remove-filter" onclick="removeQueryParam('filter')"><i class="fas fa-times-circle"></i></div>
+                    </div>
+                </div>
+            </div>
+    <ul class="list-news">
+    {% if stories|length > 0%}
+      {% for story in stories %}
+          <li class="list-item">
+            <div>
+                <div class="title-tag">
+                    {% if story.url %}
+                        <a href="{{ story.url }}" target="_blank"><h4>{{ story }}</h4></a><span class="tag">{{ story.get_type_display }}</span>
+                    {% else %}
+                        <h4>{{ story }}</h4><span class="tag">{{ story.get_type_display }}</span>
+                    {% endif %}
+                </div>
+                <p>by: {{ story.author }}</p>
+                <p>Date: {{ story.time_created }}</p>
+            </div>
+              <a href="/{{ story.type }}/{{ story.id }}" class="link">
+                  <i class="fas fa-chevron-right"></i>
+              </a>
+        </li>
+    {% endfor %}
+    {% else %}
+        <h2>No Items Available</h2>
+    {% endif %}
+    </ul>
+    <script src={% static 'js/main.js' %}></script>
+    {% if pages > 1 %}
+    <div class="pagination"><ul></ul></div>
+    <script src={% static 'js/pagination.js' %}></script>
+    <script>
+        const totalPages = {{ pages }}
+        const currentPage = {{ current_page }}
+        const element = document.querySelector(".pagination ul");
+        element.innerHTML = createPagination(totalPages, currentPage);
+    </script>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  max-width: 1280px;
+  margin: auto;
+}
+
+.back {
+  height: 100%;
+}
+.back .top {
+  height: 28%;
+  background: rgba(54, 54, 155, 0.91);
+  position: relative;
+}
+.back .bottom {
+  height: 72%;
+  background: #eeecec;
+}
+
+.main {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  z-index: 1;
+  justify-content: center;
+  padding: 0 2rem;
+}
+.main .logo {
+  color: white;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 5;
+}
+
+.content {
+  width: 100%;
+  height: calc(100% - 125px);
+  margin-top: 100px;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  padding: 0.8rem 1rem;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .remove {
+  color: darkgrey;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+}
+.header .remove:hover {
+  color: #e74141;
+}
+.header .title {
+  display: flex;
+  align-items: center;
+}
+.header .left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .left form {
+  position: relative;
+  margin-right: 1rem;
+}
+.header .left form input {
+  height: 40px;
+  padding: 0.2rem 37px 0.2rem 0.4rem;
+}
+.header .left form button {
+  position: absolute;
+  height: 100%;
+  width: 30px;
+  right: 0;
+}
+.header .left .filters {
+  display: flex;
+  align-items: center;
+}
+.header .left .filters .tag {
+  padding: 0.5rem 0.8rem;
+  background: darkgrey;
+  color: white;
+  margin-left: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.header .left .filters .tag:hover, .header .left .filters .tag.active {
+  background: rgba(54, 54, 155, 0.91);
+}
+
+.list-news {
+  min-height: 300px;
+  height: calc(100% - 150px);
+  margin: 1.2rem 0;
+  overflow: auto;
+}
+.list-news .list-item {
+  min-height: 80px;
+  border-bottom: 1px solid lightgray;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-news .list-item .link {
+  height: 80px;
+  width: 50px;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: darkgrey;
+  transition: all 0.5s;
+}
+.list-news .list-item .link:hover {
+  background: #f2f2f2;
+  text-decoration: none;
+}
+.list-news .list-item .title-tag {
+  display: flex;
+  align-items: center;
+}
+.list-news .list-item .title-tag .tag {
+  padding: 0.3rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+  color: white;
+  font-weight: 500;
+  background: rgba(54, 54, 155, 0.91);
+}
+.list-news .list-item a {
+  color: black;
+}
+.list-news .list-item a:hover {
+  text-decoration: underline;
+}
+
+.pagination ul {
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 8px;
+  border-radius: 50px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.pagination ul li {
+  color: rgba(54, 54, 155, 0.91);
+  list-style: none;
+  line-height: 45px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+.pagination ul li.numb {
+  list-style: none;
+  height: 45px;
+  width: 45px;
+  margin: 0 3px;
+  line-height: 45px;
+  border-radius: 50%;
+}
+.pagination ul li.numb.first {
+  margin: 0 3px 0 -5px;
+}
+.pagination ul li.numb.last {
+  margin: 0 -5px 0 3px;
+}
+.pagination ul li.dots {
+  font-size: 22px;
+  cursor: default;
+}
+.pagination ul li.btn {
+  padding: 0 20px;
+  border-radius: 50px;
+}
+.pagination ul li.active, .pagination ul li.numb:hover, .pagination ul li:first-child:hover, .pagination ul li:last-child:hover {
+  color: #fff;
+  background: rgba(54, 54, 155, 0.91);
+}
+
+.content {
+  overflow: auto;
+}
+.content .detail-item {
+  margin-top: 0.5rem;
+}
+.content .comments .comment {
+  padding: 0 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid darkgrey;
+}
+.content .comments .comment .small {
+  margin-top: 0.2rem;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+/*# sourceMappingURL=style.css.map */

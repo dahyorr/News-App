@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="header">
+        <div class="title">
+            <h1>{{ object.title }}</h1>
+            {% if search %}
+                <a class="remove " href="/"><i class="fas fa-times-circle"></i></a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="detail-item"><h4>Author </h4><p>{{ object.author }}</p></div>
+    <div class="detail-item"><h4>Date</h4><p>{{ object.time_created }}</p></div>
+    {% if object.reference_id %}
+    <div class="detail-item"><h4>Reference Id </h4><p>{{ object.reference_id }}</p></div>
+    {% endif %}
+    {% if story.url %}
+        <div class="detail-item"><h4>URL </h4><p><a href="{{ object.url }}" target="_blank">{{ object.url }}</a></p></div>
+    {% endif %}
+    <div class="detail-item"><h4>Score </h4><p>{{ object.score }}</p></div>
+    {% if object.type == 'job' %}
+    {% autoescape off %}
+        <div class="detail-item"><h4>Text: </h4><p>{{ object.text }}</p></div>
+    {% endautoescape %}
+    {% endif %}
+    <br>
+    <div class="comments">
+        <h3>Comments</h3>
+        {% if object.comments.all|length < 1%}
+            <h4>No comments Available</h4>
+        {% else %}
+            {% for comment in object.comments.all %}
+                <div class="comment">
+                    {% autoescape off %}
+                        {{ comment.text }}
+                    {% endautoescape %}
+                    <p class="small"><small>By</small> {{ comment.author }} <small>on</small> {{ comment.time_created }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+{% endblock %}
