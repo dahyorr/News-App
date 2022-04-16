@@ -67,7 +67,7 @@ def sort_news(news_item):
             time_created=timezone.make_aware(datetime.fromtimestamp(item['time'])),
             reference_id=item['id'],
             parent=Base.objects.get(reference_id=item['parent']),
-            text=item['text'],
+            text=item['text'] if 'text' in item else '',
             fetched=True,
         ).save(),
 
