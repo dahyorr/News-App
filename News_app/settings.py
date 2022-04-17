@@ -32,7 +32,8 @@ DEBUG = bool(os.environ.get('DEBUG', False))
 ALLOWED_HOSTS = [
     '127.0.0.1', 
     'hidden-castle-77724.herokuapp.com',
-    'news-app-production.up.railway.app'
+    'news-app-production.up.railway.app',
+    'news.dayo.dev',
 ]
 
 

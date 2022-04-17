@@ -35,7 +35,7 @@ def sort_news(news_item):
             author=item['by'],
             time_created=timezone.make_aware(datetime.fromtimestamp(item['time'])),
             reference_id=item['id'],
-            title=item['title'],
+            title=item['title'] if 'title' in item else '',
             url=item['url'] if 'url' in item else '',
             score=item['score'],
             descendants=item['descendants'] if 'descendants' in item else None,
