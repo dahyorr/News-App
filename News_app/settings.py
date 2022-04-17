@@ -29,7 +29,11 @@ SECRET_KEY = 'django-insecure-fjm8ye151b668)ji(=3+8$^0m7fe@rs-jja63u*utiuy&hj+%k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DEBUG', False))
 
-ALLOWED_HOSTS = ['127.0.0.1', 'hidden-castle-77724.herokuapp.com']
+ALLOWED_HOSTS = [
+    '127.0.0.1', 
+    'hidden-castle-77724.herokuapp.com',
+    'news-app-production.up.railway.app'
+]
 
 
 # Application definition
