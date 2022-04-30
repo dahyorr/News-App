@@ -1,5 +1,7 @@
  # News App
  Application created using Django
+ Fetches latest news data from hacker news API, displays and links to the article
+ allows creating news through the API
 
 
 ## Management commands
